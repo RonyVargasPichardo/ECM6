@@ -42,11 +42,40 @@ console.log(str.padEnd(11, ` empty`))
 
 
 
-
-
-
-
 // Trailing-Comas.
 const obj = {
     name:'rony',
 }
+
+
+
+
+//ASYNc Await
+
+const helloWorld = () =>{
+    return new Promise ((resolve, reject) =>{
+        (true)
+            ? setTimeout(() => resolve('Hello world'), 3000) 
+            : reject( new Error ('Text Error'))
+    })
+}
+
+const helloAsync = async () => {
+    const hello = await helloWorld();
+    console.log(hello)
+}
+
+helloAsync()
+
+
+// try catch forma correcta de llamar una promesa con async await
+
+const anotherFunction = async () =>{
+    try{
+        const hello = await helloWorld()
+        console.log(hello)
+    }catch(error){
+        console.log(error)
+    }
+}
+anotherFunction()
