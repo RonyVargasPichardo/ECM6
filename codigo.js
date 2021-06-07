@@ -79,3 +79,36 @@ const anotherFunction = async () =>{
     }
 }
 anotherFunction()
+
+
+
+
+
+
+
+
+
+//// Async Await ejemplo de una venta helados
+
+const preparacionHelado = (money, sabor) => {
+    return new Promise ((resolve , reject) => {
+        if(money >= 50){
+            console.log('Estamos preparando tu helado')
+            setTimeout(()=> resolve(`Aqui tienes tu helado de ${sabor}`), 5000)
+        } else{
+            reject('Sorry tu dinero no alcansa!!');
+        } 
+    })
+}
+
+const buyHelado = async (money, sabor) =>{
+    try {
+        console.log('Welcome al World del helado')
+        const result = await preparacionHelado(money, sabor)
+        console.log(result)
+        console.log('Thanks You for visit us')
+    } catch (error) {
+        console.log(error)
+    }
+}
+buyHelado(50, 'fresa')
